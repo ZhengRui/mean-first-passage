@@ -4,3 +4,4 @@
 *.txt
 Main/WSnet.m
 Main/dijk*.*
+Main/sfdeg.m
