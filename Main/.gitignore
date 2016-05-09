@@ -1,0 +1,6 @@
+*.mat
+*.fig
+*.out
+WSnet.m
+dijk*.*
+sfdeg.m

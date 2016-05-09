@@ -1,7 +1,0 @@
-*.mat
-*.fig
-*.out
-*.txt
-Main/WSnet.m
-Main/dijk*.*
-Main/sfdeg.m
