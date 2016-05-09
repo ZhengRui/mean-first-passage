@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#SBATCH -J simulate
+
+##SBATCH --mail-user=rzhengac@ust.hk
+##SBATCH --mail-type=begin
+##SBATCH --mail-type=end
+
+#SBATCH -p gpu-m
+#SBATCH -w "gpu-ib-8"
+
+#SBATCH -N 1 -n 1 --gres=gpu:2
+source ~/.bash_profile
+
+
+
+cd $HOME/workspace/MeanFirstPassage/ERnetwork
+srun --gres=gpu:2 -N 1 -n 1 task.sh 4039 1 50 "../crawlernet/stanford/fbego/" &
+
+wait
+
