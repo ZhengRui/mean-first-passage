@@ -1,9 +1,9 @@
 clear all;
 clc;
 
-tobeload = {'../networkbase/Dolphin/Dolphindistance.mat', '../networkbase/12/distance3282.mat', '../networkbase/BA/distance2000.mat', '../networkbase/sierpinski/distance3282.mat', '../networkbase/Tgraph/distance2188.mat'};
+tobeload = {'../networkbase/Dolphin/Dolphindistance.mat', '../networkbase/12/distance3282.mat', '../networkbase/BA/distance2000.mat', '../networkbase/sierpinski/distance3282.mat', '../networkbase/Tgraph/distance2188.mat', '../networkbase/12/distance366.mat', '../networkbase/sierpinski/distance366.mat'};
 
-idx = 4;
+idx = 6;
 load(tobeload{idx});
 
 n = size(minD,1);
@@ -56,11 +56,12 @@ for j = 1:nbeta
 end
 
 
-tobeload = {'../networkbase/Dolphin/res_Dolphin_1x2000.mat', '../networkbase/12/res_onetwo3282_1x500.mat', '../networkbase/BA/res_BA2000_1x800.mat', '../networkbase/sierpinski/res_sierpinski3282_1x200.mat', '../networkbase/Tgraph/res_*.mat'};
+tobeload = {'../networkbase/Dolphin/res_Dolphin_1x2000.mat', '../networkbase/12/res_onetwo3282_1x500.mat', '../networkbase/BA/res_BA2000_1x800.mat', '../networkbase/sierpinski/res_sierpinski3282_1x500.mat', '../networkbase/Tgraph/res_*.mat', '../networkbase/12/res_onetwo366_20x100.mat', '../networkbase/sierpinski/res_sierpinski366_20x200.mat'};
 
 load(tobeload{idx});
 for j = 1:nbeta
-    plot(alpha,avgD(:, j),'o','color', cc(j, :),'linewidth',2);
+    %plot(alpha,avgD(:, j),'o','color', cc(j, :),'linewidth',2);
+    errorbar(alpha, mean(avgD(:,j,:), 3), std(avgD(:,j,:), 0, 3), 'o','color', cc(j, :),'linewidth',2);
 end
 disp(['simulation takes time: ' num2str(t/3600) ' h']);
 

@@ -77,11 +77,17 @@ for j = 1:nbeta
     leg = [leg {['\beta = ' num2str(beta(j))]}];
 end
 
-load('../crawlernet/stanford/fbego/res_fbego_PgRnk_1x50.old.mat');
+%load('../crawlernet/stanford/fbego/res_fbego_PgRnk_1x50.old.mat');
+%for j = 1:nbeta
+%    plot(mu,avgD(:, j),'o','color', cc(j, :),'linewidth',2);
+%end
+%disp(['simulation takes time: ' num2str(t/3600) ' h']);
+
+load('../crawlernet/stanford/fbego/mean_std_20x50.mat');
 for j = 1:nbeta
-    plot(mu,avgD(:, j),'o','color', cc(j, :),'linewidth',2);
+    errorbar(mu, mmean(:,j), sstd(:,j), 'o','color', cc(j, :),'linewidth',2);
 end
-disp(['simulation takes time: ' num2str(t/3600) ' h']);
+
 xlabel('\it{\mu}','FontName','Times New Roman','FontSize',20);
 ylabel('\it{\langle{T}\rangle}','FontName','Times New Roman','FontSize',20); 
 legend(leg);
